@@ -1,4 +1,5 @@
 import {Router, Request, Response} from 'express';
+import { Server } from '../classes/server';
 
 export const router = Router();
 
@@ -24,6 +25,8 @@ router.post('/mensajes/:id',(req: Request, res: Response) => {
    const body =  req.body.cuerpo;
    const de = req.body.de;
    const id = req.params.id;
+
+   const server = Server.instance;
    res.json({
       ok: true,
       mensaje: 'Todo listo - POST',

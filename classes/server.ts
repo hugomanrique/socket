@@ -24,9 +24,11 @@ export class Server {
    }
 
    private escucharSocket(){
-      console.log('Se escucha');
       this.io.on('connection', cliente =>{
-         console.log('Cliente conectado');
+         //CONECTAR A CLIENTE
+         scks.conectarCliente(cliente);
+         //CONFIGURAR USUARIO
+         scks.config_user(cliente,this.io);
          //MENSAJES
          scks.mensaje(cliente,this.io);
          //EJECUCION DE CLIENTE DESCONECTADO
