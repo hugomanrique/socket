@@ -25,14 +25,16 @@ export class Server {
 
    private escucharSocket(){
       this.io.on('connection', cliente =>{
-         //CONECTAR A CLIENTE
-         scks.conectarCliente(cliente);
-         //CONFIGURAR USUARIO
+         // CONECTAR A CLIENTE
+         scks.conectarCliente(cliente,this.io);
+         // CONFIGURAR USUARIO
          scks.config_user(cliente,this.io);
-         //MENSAJES
+         // MENSAJES
          scks.mensaje(cliente,this.io);
-         //EJECUCION DE CLIENTE DESCONECTADO
-         scks.desconectar(cliente);
+         // EJECUCION DE CLIENTE DESCONECTADO
+         scks.desconectar(cliente,this.io);
+         // EMITE LISTA DE USUARIOS ACTUALES
+         scks.getUsers(cliente,this.io);
       });
    }
 

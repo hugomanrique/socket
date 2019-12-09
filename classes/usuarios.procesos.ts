@@ -20,7 +20,9 @@ export class Usuariosprocess {
    }
 
    getLista(){
-      return this.lista;
+      return this.lista.filter( usuario => {
+         return usuario.nombre !== 'sin-nombre';
+      });
    }
 
    getUser(id: string){
